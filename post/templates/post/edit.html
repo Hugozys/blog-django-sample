@@ -1,0 +1,15 @@
+{% extends "base_form.html" %}
+
+{% block title %}
+Edit
+{% endblock %}
+
+{% block form %}
+<form action="{% url 'post:edit' post_id  %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+<a href="{% url 'post:delete' post_id %}" class ="btn-sm">Delete</a>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+
+{% extends "base_form.html" %}
+
+{% block title %}
+Edit Tag
+{% endblock %}
+
+{% block form %}
+
+<form  method="post">
+  {{ formset.management_form }}
+  <div id= "mark"> 
+  {% for form in formset %}
+  {% csrf_token %}
+  {{form.as_p}}
+  {% endfor %}
+  </div>
+  <input type="submit" value="Submit">
+</form>
+
+<div id="empty_form" style="display:none">
+  {{formset.empty_form.as_p}}
+</div>
+
+<input type="button" value="Add More" id="inc">
+<input type="button" value="Delete More" id="dec">
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+<script>
+    function replace(old){
+	//console.log("replace old");
+	$('#mark').append($('#empty_form').html().replace(/__prefix__/g,old));
+    }
+$('#inc').click(function(){
+    // console.log("Enter inc function");
+    var total_forms = parseInt($('#id_form-TOTAL_FORMS').val());
+    var max_forms = parseInt($('#id_form-MAX_NUM_FORMS').val());
+    // console.log("total forms: ",total_forms);
+    // console.log("max forms: ",max_forms);
+    // console.log(total_forms < max_forms);
+      if (total_forms < max_forms){
+	  //console.log("condition satisfied");
+	  var old_total = total_forms;
+	  ++total_forms;
+	  replace(old_total);
+	  $('#id_form-TOTAL_FORMS').val(total_forms);
+      }
+	    
+  })
+$('#dec').click(function(){
+    var min_forms = parseInt($('#id_form-MIN_NUM_FORMS').val());
+    var dec_total_forms = parseInt($('#id_form-TOTAL_FORMS').val());
+    // console.log("total forms: ",dec_total_forms);
+    // console.log("min forms: ",min_forms);
+      if (dec_total_forms > min_forms){
+	  --dec_total_forms;
+	  $("#mark p").slice(-2).remove();
+	  $('#id_form-TOTAL_FORMS').val(dec_total_forms);
+      }
+  })
+</script>
+  
+  
+{% endblock %}

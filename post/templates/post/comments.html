@@ -1,0 +1,28 @@
+
+{% load martortags %}
+{% load humanize %}
+<div style="margin-bottom: 110px">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="page-header">
+	<h1><small class="pull-right">{{post.comment_set.all.count}} comments</small> Comments </h1>
+      </div> 
+      <div class="comments-list">
+	{% for comment in post.comment_set.all %}
+	<div class="media">
+          <a class="media-left" href="#">
+            <img src="http://lorempixel.com/40/40/people/1/">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading user_name">{{ comment.user.username }}</h4>
+            {{ comment.content | safe_markdown }}
+          </div>
+	  <p><small class="pull-right"> {{ comment.created_date | naturaltime }}</small></p> 
+	</div>
+	{% empty %}
+	<p style="font-size:25px">No comments yet. Leave your first comment!</p>
+	{% endfor %} 
+      </div>
+    </div>
+  </div>
+</div>
