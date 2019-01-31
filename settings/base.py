@@ -23,9 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '47fn)_(6_r5h^$(_g%=4ft+%rvppnafr*6*aj=usqvokj6kv-m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['vcm-7520.vm.duke.edu','67.159.94.90']
 
 
 # Application definition
@@ -80,16 +77,6 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blog',
-        'USER': 'hugo',
-        'HOST': 'db',
-        'PASSWORD':'hugoblog2019',
-        'PORT':'5432',
-    }
-}
 
 
 # Password validation
@@ -130,6 +117,7 @@ LOGOUT_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     
@@ -149,8 +137,6 @@ MARTOR_ENABLE_CONFIGS = {
 MARTOR_ENABLE_LABEL = False
 
 # Imgur API Keys
-MARTOR_IMGUR_CLIENT_ID = '672f0172131a407'
-MARTOR_IMGUR_API_KEY   = '876193878c58c665d7db81ddb5ebb49a8bd4c842'
 
 # Safe Mode
 MARTOR_MARKDOWN_SAFE_MODE = True # default
