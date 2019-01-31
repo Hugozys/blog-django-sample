@@ -26,6 +26,9 @@ MARTOR_IMGUR_CLIENT_ID = os.environ['CLIENT_ID']
 MARTOR_IMGUR_API_KEY   = os.environ['API_KEY']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.duke.edu'
-EMAIL_USER_SSL = 'True'
-DEFAULT_FROM_EMAIL = 'yz395@vcm-7520.vm.duke.edu'
+EMAIL_HOST = os.environ['EMAIL_HOST']
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ['EMAIL_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_PWD']
+DEFAULT_FROM_EMAIL = 'noreply@hugozh.com'
