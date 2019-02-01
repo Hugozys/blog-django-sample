@@ -1,0 +1,14 @@
+{% extends 'base_auth.html' %}
+{% block title %}
+Signup Confirm
+{% endblock %}
+
+{% block body %}
+<div class="signup-form">
+  <h2 style="color:white"> Confirm </h2>
+  <p style="font-size: 15pt">We sent you an activation link to the email address you provided to us. Please click on the link to activate your account!</p>
+  <div class="form-group">
+    <a style="color:white" href="{% url 'authe:login' %}" class="btn btn-success btn-lg btn-block">Login</a>
+  </div>
+</div>
+{% endblock %}

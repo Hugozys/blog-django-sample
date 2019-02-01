@@ -1,0 +1,13 @@
+
+Hi {{user.get_username}},
+You recently registered a new account in HugoBlog. We sent you a confirmation message to your email address you provided to activate your account. Note that this activation link is only valid for the next 24 hours. For security, if you did not register, pleaseignore this email. Copy the following link into your browser to activate your account.
+
+{{protocol}}://{{domain}}{% url 'authe:activate' uidb64=uid token=token %}
+
+
+Thanks,
+Hugo
+
+[Duke University]
+2138 Campus Drive
+Durham, NC

@@ -4,7 +4,11 @@
 {% block nested %}
 <!-- Navigation -->
 <!-- Page Header -->
-<header class="masthead" style="background-image: url({% static 'img/home-bg.jpg' %})">
+{% if tagname == "travel" %}
+<header class="masthead" style="background-image: url({% static 'img/travel-bg.jpg' %})">
+  {% else %}
+  <header class="masthead" style="background-image: url({% static 'img/home-bg.jpg' %})">
+    {% endif %}
   <div class="overlay"></div>
   <div class="container">
         <div class="row">
@@ -14,7 +18,7 @@
               <span class="subheading">
 		{% if tagname == "travel" %}
 		Next Stop: Japan<br>
-		Interested in joining? <a style="text-decoration: underline;" href="#">Here!</a>
+		Interested in joining? <a style="text-decoration: underline;" href="https://goo.gl/forms/EbS4lP3jDcdPCaKg1">Here!</a>
 		{% else %}
 		{{tagname}}
 		{% endif %}
@@ -24,7 +28,6 @@
         </div>
   </div>
 </header>
-
 <!-- Main Content -->
     <div class="container">
       <div class="row">
@@ -39,9 +42,13 @@
               <a href="{% url 'home:about' %}">Hugo</a>
               {{post.pub_date|date:"M. d, Y" }}</p>
 	    <p class="post-meta">
+	      {% if tagname == 'travel' %}
+	      # travel
+	      {% else %}
 	      {% for tag in post.tags.all %}
 	      #<a href = "{% url 'post:index_tag' tag.tag_text %}">{{tag.tag_text}}</a>
 	      {% endfor %}
+	      {% endif %}
 	    </p>
 	    <p class = "post-meta">
 	      {{ post.body | safe_markdown | truncatewords:"100" }}
@@ -59,7 +66,23 @@
         </div>
       </div>
     </div>
-    
+    {% if post_list.has_previous or post_list.has_next %}
+    <hr>
+    {% endif %}
+    <nav aria-label="Page navigation example" style="text-align: center">
+      <ul class="pagination">
+	{% if post_list.has_previous %}
+	<li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+	<li class="page-item"><a class="page-link" href="?page={{ post_list.previous_page_number}}">previous</a></li>
+      </ul>
+      {% endif %}
+      {% if post_list.has_next %}
+      <ul class="pagination">
+	<li class="page-item"><a class="page-link" href="?page={{ post_list.next_page_number }}">next</a></li>
+	<li class="page-item"><a class="page-link" href="?page={{ post_list.paginator.num_pages }}">last &raquo;</a></li>
+      </ul>
+      {% endif %}
+    </nav>
     <hr>
 {% endblock %}
     

@@ -8,7 +8,7 @@ from .forms import PostForm, CommentForm, TagForm
 from django.utils import timezone
 from django.forms import modelformset_factory
 from django.contrib.auth.decorators import permission_required
-
+from django.core.paginator import Paginator
 
 def detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
@@ -30,19 +30,24 @@ def detail(request, post_id):
 
 
 def index(request):
-    post_list = Post.objects.exclude(tags__tag_text="travel")
+    post_lst = Post.objects.exclude(tags__tag_text="travel")
+    paginator = Paginator(post_lst, 8)
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
     context = {'post_list': post_list,'tagname':'Articles'}
     return render(request, 'post/index.html',context)
 
 
 def tagIndex(request,tag_slug):
-    post_list = Post.objects.filter(tags__tag_text=tag_slug)
+    post_lst = Post.objects.filter(tags__tag_text=tag_slug)
+    paginator = Paginator(post_lst, 8)
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
     context = {'post_list': post_list, 'tagname':tag_slug}
     return render(request, 'post/index.html',context)
 
 @permission_required('post.can_create',login_url="authe:oops")
 def create(request):
-    print("Creating")
     if (request.method == 'POST'):
         form = PostForm(request.POST)
         if form.is_valid():

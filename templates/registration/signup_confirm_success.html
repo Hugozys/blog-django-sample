@@ -1,0 +1,14 @@
+{% extends 'base_auth.html' %}
+{% block title %}
+Activate
+{% endblock %}
+
+{% block body %}
+<div class="signup-form">
+  <h2 style="color:white"> Success </h2>
+  <p style="font-size: 15pt">You account has been successfully activated!</p>
+  <div class="form-group">
+    <a style="color:white" href="{% url 'authe:login' %}" class="btn btn-success btn-lg btn-block">Login</a>
+  </div>
+</div>
+{% endblock %}

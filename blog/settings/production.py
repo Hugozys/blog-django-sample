@@ -32,3 +32,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ['EMAIL_USER']
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_PWD']
 DEFAULT_FROM_EMAIL = 'noreply@hugozh.com'
+
+STATIC_URL = '/staticfiles/'
+

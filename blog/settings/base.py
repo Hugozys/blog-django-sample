@@ -116,12 +116,6 @@ LOGOUT_REDIRECT_URL = '/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/staticfiles/'
-STATIC_ROOT = 'staticfiles/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    
-]
 
 
 # Global martor settings
@@ -171,3 +165,7 @@ MARTOR_SEARCH_USERS_URL = '/martor/search-user/' # default
 MARTOR_MARKDOWN_BASE_EMOJI_URL = 'https://assets-cdn.github.com/images/icons/emoji/' # default
 MARTOR_MARKDOWN_BASE_MENTION_URL = 'https://python.web.id/author/' # default (change this)
 
+STATIC_ROOT = 'staticfiles/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]

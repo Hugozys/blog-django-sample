@@ -3,7 +3,7 @@ from django import forms
 from django.forms import EmailField
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib.sites.shortcuts import get_current_site
 
 class MyUserCreationForm(UserCreationForm):
     email = EmailField(label=_("Email address"), required=True, 
@@ -43,7 +43,7 @@ class MyUserCreationForm(UserCreationForm):
             raise forms.ValidationError(u'Email addresses must be unique')
             pass
         return cleaned_data
-        
+    
     def save(self, commit=True):
         user = super(UserCreationForm, self).save(commit=False)
         new_email = self.cleaned_data["email"]

@@ -7,9 +7,9 @@ services:
       - data-volume:/var/lib/postgresql/data
     restart: on-failure
     environment:
-      POSTGRES_PASSWORD: hugoblog2019
-      POSTGRES_USER: hugo
-      POSTGRES_DB: blog
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: nobody
+      POSTGRES_DB: blog_db
   web-init:
     build: .
     command: /code/initserver.sh
