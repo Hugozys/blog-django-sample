@@ -1,6 +1,6 @@
 from .base import *
 SECRET_KEY = os.environ['SECRET_KEY']
-SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_SECONDS = 31536000
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
@@ -10,15 +10,15 @@ SECURE_SSL_REDIRECT = True
 X_FRAME_OPTIONS = 'DENY'
 SECURE_HSTS_PRELOAD = True
 DEBUG = False
-ALLOWED_HOSTS = ['hugozh.com','157.230.56.216']
+ALLOWED_HOSTS = [os.environ['HOST_NAME'],os.environ['HOST_IP']]
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blog_db',
-        'USER': 'nobody',
+        'ENGINE': os.environ['DB_ENGINE'],
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
         'PASSWORD': os.environ['DB_PASSWORD'],
-        'HOST':'localhost',
-        'PORT':'5432',
+        'HOST':os.environ['DB_HOST'],
+        'PORT':os.environ['DB_PORT'],
     }
 }
 
