@@ -6,9 +6,11 @@
 
 # How To Run Demo
   To run the demo, simply install docker on your Linux VM
+
   `sudo apt install docker.io docker-compose`
-  `sudo chmod -aG docker $USER`
+  `sudo usermod -aG docker $USER`
   After you successfully install the docker, you can initiate the web applicaiton by launching
+
   `docker-compose up`
   Then open the web browser and visit URL: $(VM-DOMAIN):8000/
 
