@@ -55,7 +55,7 @@ class UserCreate(CreateView):
         to_email = receiver.email
         print("plainmessage:", plainmessage)
         print("htmlmessage:", htmlmessage)
-        send_mail(mail_subject, message=plainmessage,from_email="hugozzys@gmail.com",recipient_list=[to_email], fail_silently=False, html_message=htmlmessage)
+        send_mail(mail_subject, message=plainmessage,from_email="hugoblognoreply@gmail.com",recipient_list=[to_email], fail_silently=False, html_message=htmlmessage)
         return
     
     def post(self, request, *args, **kwargs):

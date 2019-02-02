@@ -16,15 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from authe import views as authe_view
+from django.conf import settings
 from . import views
 urlpatterns = [
     path('authe/', include('authe.urls')),
-    path('admin/', admin.site.urls),
     path('home/', include('home.urls')),
     path('posts/',include('post.urls')),
     path('', views.redir, name = 'home_redir'),
     path('martor/',include('martor.urls')),
     
 ]
+if settings.ADMIN_ENABLED:
+    urlpatterns += [path('admin/', admin.site.urls),]
+    pass
 
 handler404 = authe_view.NotFound.as_view()

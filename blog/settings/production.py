@@ -10,6 +10,7 @@ SECURE_SSL_REDIRECT = True
 X_FRAME_OPTIONS = 'DENY'
 SECURE_HSTS_PRELOAD = True
 DEBUG = False
+ADMIN_ENABLED = False
 ALLOWED_HOSTS = [os.environ['HOST_NAME'],os.environ['HOST_IP']]
 DATABASES = {
     'default': {
