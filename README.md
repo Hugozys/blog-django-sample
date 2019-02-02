@@ -10,6 +10,7 @@
   `sudo apt install -y docker.io docker-compose`
 
   `sudo usermod -aG docker $USER`
+
   After you successfully install the docker, you can initiate the web applicaiton by launching
 
   `docker-compose up`
