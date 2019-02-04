@@ -13,16 +13,16 @@ services:
   web-init:
     build: .
     command: /code/initserver.sh
-    volumes:
-      - .:/code
+    #volumes:
+    #  - .:/code
     depends_on:
       - db
   web:
     build: .
     user: nobody
     command: /code/runserver.sh
-    volumes:
-      - .:/code
+    #volumes:
+    #  - .:/code
     ports:
       - "8000:8000"
     depends_on:
