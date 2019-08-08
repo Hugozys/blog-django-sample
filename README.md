@@ -1,5 +1,5 @@
 # HugoBlog - A Simple Django Web Application for Personal Website
-  This web application is a skill refresh for TAing Duke ECE568 ERSS course. It is also the same code that I used to maintain my first personal blog webiste. The github repository contains all the development code. You could see a development demo via docker. To visit actual deployed web, go [here](https://hugozh.com).
+  This web application is a skill refresh for TAing Duke ECE568 ERSS course. It is also the same code that I used to maintain my first personal blog webiste. The github repository contains all the development code. You could see a development demo via docker. To visit actual deployed web, go [here](https://hugozh.com). (This domain is reserved for other purpose, so the deployed web application was shut down).
   
   The development version is configured in such a way that you may only successfully run the demo if you are on a Duke Virtual Machine. If you are on other other VM or Linux host, you need to change the following configuration in `development.py` before running docker:
   * ALLOWED_HOST should be the FQDN or public ip address associated with your host
