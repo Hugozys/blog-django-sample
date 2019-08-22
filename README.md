@@ -1,4 +1,4 @@
-# HugoBlog - A Simple Django Web Application Practice
+# HugoBlog - A Sample Django Web Application Practice
   This web application is a skill refresh for TAing Duke ECE568 ERSS course. ~~It is also the same code that I used to maintain my first personal blog webiste.~~ The github repository contains all the development code. You could see a development demo via docker. ~~To visit actual deployed web, go [here](placeholder).~~ 
   
   The development version is configured in such a way that you may only successfully run the demo if you are on a Duke Virtual Machine. If you are on other other VM or Linux host, you need to change the following configuration in `development.py` before running docker:
